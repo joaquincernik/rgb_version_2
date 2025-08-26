@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import sequelize from "./database.js";
-import models from "./models/index.js"; // importa y registra asociaciones
+import "./models/index.js"; // importa y registra asociaciones
+import * as userController from "./controllers/userController.js";
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -48,10 +49,11 @@ await sequelize
 
   await sequelize.sync({ alter: false }); // o { force: false } en prod
 // Rutas de ejemplo
-app.get("/api/users", async (req, res) => {
-  const users = await models.User.findAll();
-  res.json(users);
-});
+app.get("/api/users", userController.getUsers);
+app.get("/api/users/:id", userController.getUser);
+app.post("/api/users", userController.createUser);
+app.patch("/api/users/:id", userController.updateUser);
+app.delete("/api/users/:id", userController.deleteUser);
 app.listen(PORT, () => {
   console.log(`API escuchando en http://localhost:${PORT}`);
 });
