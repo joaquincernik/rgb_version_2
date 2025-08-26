@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import sequelize from './database.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -38,6 +39,10 @@ app.delete('/api/todos/:id', (req, res) => {
   todos = todos.filter(t => t.id !== id);
   res.status(204).end();
 });
+
+sequelize.authenticate()
+  .then(() => console.log('✅ Conexión a MySQL exitosa'))
+  .catch(err => console.error('❌ Error al conectar a MySQL:', err));
 
 app.listen(PORT, () => {
   console.log(`API escuchando en http://localhost:${PORT}`);
