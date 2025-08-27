@@ -1,0 +1,26 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#navbar a{
+    font-size: 1rem;
+    color: white;
+    font-weight: 400;
+        text-decoration: none; 
+
+}
+
+#navbar div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton{
+    background-color: #E63946; 
+    color: #fff; 
+    padding: 0.8rem 1.5rem; 
+    border-radius: 30px;
+} 
