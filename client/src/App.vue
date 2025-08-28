@@ -1,63 +1,28 @@
 <script setup>
 import Header from './components/Header.vue';
 import CardYt from './components/CardYt.vue';
-/*import { ref, onMounted } from 'vue'
 
-const todos = ref([])
-const newText = ref('')
-const loading = ref(false)
+import { ref, onMounted } from 'vue'
+
+const videos = ref([])
+const loading = ref(true)
 const error = ref('')
 
-async function fetchTodos() {
-  loading.value = true
-  error.value = ''
-  try {
-    const res = await fetch('/api/todos')
-    todos.value = await res.json()
-  } catch (e) {
-    error.value = 'No se pudo cargar la lista'
-  } finally {
-    loading.value = false
-  }
+onMounted(fetchLatest)
+async function fetchLatest() {
+    try {
+        const res = await fetch(`/api/youtube/latest`)
+        if (!res.ok) throw new Error('HTTP ' + res.status)
+        const data = await res.json()
+        videos.value = data.videos ?? []
+    } catch (e) {
+        error.value = 'No se pudo cargar YouTube'
+        console.error(e)
+    } finally {
+        loading.value = false
+    }
 }
 
-async function addTodo() {
-  if (!newText.value.trim()) return
-  const res = await fetch('/api/todos', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text: newText.value })
-  })
-  if (!res.ok) {
-    alert('Error creando TODO')
-    return
-  }
-  const created = await res.json()
-  todos.value.push(created)
-  newText.value = ''
-}
-
-async function toggleDone(todo) {
-  const res = await fetch(`/api/todos/${todo.id}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ done: !todo.done })
-  })
-  if (res.ok) {
-    const updated = await res.json()
-    const i = todos.value.findIndex(t => t.id === updated.id)
-    todos.value[i] = updated
-  }
-}
-
-async function removeTodo(id) {
-  const res = await fetch(`/api/todos/${id}`, { method: 'DELETE' })
-  if (res.status === 204) {
-    todos.value = todos.value.filter(t => t.id !== id)
-  }
-}
-
-onMounted(fetchTodos)*/
 </script>
 
 <template>
@@ -77,31 +42,19 @@ onMounted(fetchTodos)*/
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container my-5">
     <div class="py-5">
       <h1 class="text-center" style="font-family: IBM Plex Mono, monospace;">Visita nuestro canal de youtube</h1>
     </div>
-    <div class="row g-0">
-    <div class="col-6">
-      <div>
-        <img src="/bg-yt.jpg" style="width: 80%; border-radius: 1rem;" alt="">
+
+    <p v-if="loading">Cargando...</p>
+      <p v-else-if="error">{{ error }}</p>
+      <div v-else  class="row g-0 pb-5">
+        <div v-for="v in videos" :key="v.videoId" class="col-6">
+          <CardYt :title="v.title" :date="v.publishedAt" :linkImg="v.thumbnail" :linkYt="v.url" />
+        </div>
+        </div>
       </div>
-      <div class="py-2">
-        <h3 class="pt-2" style="font-weight: bold; font-size: 1rem;">Complejo 1 Argentino MJ 0</h3>
-        <h4 style="font-weight: 300; font-size: 0.9rem;">20 de agosto, 2025</h4>
-        <a href="https://www.youtube.com/" target="_blank"
-          class="btn btn-outline-danger d-flex align-items-center justify-content-center mt-3 gap-2"
-          style="border-radius: 0.5rem; padding: 0.5rem 0.2rem; text-decoration: none; width: 27%;">
-          <i class="fab fa-youtube" style="font-size: 1.5rem;"></i>
-          <span style="font-weight: 500; font-size: 0.8rem;">Ver en YouTube</span>
-        </a>
-      </div>
-    </div>
-    <div class="col-6">
-      <CardYt title="Complejo 27 - 7 Aleman" date="24 de agosto, 2003" linkImg="/bg-home.jpg" />
-    </div>
-    </div>
-  </div>
 </template>
 
 <style>
