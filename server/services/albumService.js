@@ -1,7 +1,11 @@
 import models from '../models/index.js';
 
-export async function findAll() {
-  return await models.Album.findAll();
+export async function findAll(limit) {
+  return await models.Album.findAll({
+    ...(limit ? { limit } : {}),
+    order: [['date', 'DESC']]
+  });
+  //return await models.Album.findAll();
 }
 
 export async function findById(id) {
