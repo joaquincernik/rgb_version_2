@@ -13,6 +13,19 @@ export async function getAlbums(req, res, next) {
   }
 }
 
+export async function listAlbums(req, res, next) {
+  try {
+    const albums = await albumService.list(req.query);
+    res.json({
+      albums,
+      count: albums.length,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+
 export async function getAlbum(req, res, next) {
   try {
     const album = await albumService.findById(req.params.id);

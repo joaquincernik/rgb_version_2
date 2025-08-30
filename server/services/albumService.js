@@ -8,6 +8,32 @@ export async function findAll(limit) {
   //return await models.Album.findAll();
 }
 
+export async function list(q){
+   const page = Math.max(parseInt(q.page ?? '1', 10) || 1, 1);
+  const pageSize = Math.min(Math.max(parseInt(q.pageSize ?? '20', 10) || 20, 1), 100);
+  const offset = (page - 1) * pageSize;
+
+  const limit = pageSize;
+  const order= [['date', 'DESC']];
+
+  const { rows, count } = await models.Album.findAndCountAll({
+    order,
+    limit,
+    offset,
+  });
+
+  return({
+    data: rows,
+    page,
+    pageSize,
+    total: count,
+    totalPages: Math.ceil(count / pageSize),
+    hasNextPage: page * pageSize < count,
+    hasPrevPage: page > 1,
+  });
+
+}
+
 export async function findById(id) {
   return await models.Album.findByPk(id);
 }

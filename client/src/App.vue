@@ -1,7 +1,8 @@
-<script setup>
+<!-- <script setup>
 import Header from './components/Header.vue';
 import CardYt from './components/CardYt.vue';
 import CardAlbum from './components/CardAlbum.vue';
+import Footer from './components/Footer.vue';
 
 import { ref, onMounted } from 'vue'
 
@@ -95,7 +96,7 @@ async function fetchLatestAlbums() {
           class="btn  d-flex align-items-center justify-content-center mt-3 gap-1"
           style="border-radius: 0.5rem; padding: 2.2rem 1.2rem;background-color: rgba(237, 242, 244, 0.3) ;text-decoration: none;">
           <i class="fab fa-whatsapp" style="font-size: 2rem;color: #80ed99;"></i>
-          <span style="font-weight: 500; font-size: 1rem; ">Pedi fotos al 3537 51-3657</span>
+          <span style="font-weight: 500; font-size: 1rem; ">Pedi fotos al <b>3537 51-3657</b></span>
         </a>
       </div>
       <div class="col-md-4 ">
@@ -125,7 +126,7 @@ async function fetchLatestAlbums() {
       </div>
     </div>
 
-    <div class="d-flex justify-content-center my-4">
+    <div class="d-flex justify-content-center mt-4 mb-5">
        <a href="/" target="_blank" rel="noopener"
                 class="btn btn-outline-danger d-flex align-items-center justify-content-center mt-3 gap-2"
                 style="border-radius: 0.5rem; padding: 0.5rem 0.2rem; text-decoration: none; width: 15%;">
@@ -134,6 +135,7 @@ async function fetchLatestAlbums() {
         </a>
   </div>
   </div>
+  <Footer/>
 
 </template>
 
@@ -142,3 +144,22 @@ async function fetchLatestAlbums() {
   color-scheme: light dark;
 }
 </style>
+ -->
+
+<script setup>
+import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
+<template>
+  <div>
+    <Header v-if="$route.name !== 'Home'" :home="false" />
+    <!-- Aquí se cargan las vistas -->
+    <main>
+      <RouterView />
+    </main>
+    <Footer />
+  </div>
+</template>
+

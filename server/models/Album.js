@@ -27,9 +27,7 @@ Album.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
-      type: DataTypes.BOOLEAN,
-    },
+   
     link: {
       type: DataTypes.STRING,
     }
