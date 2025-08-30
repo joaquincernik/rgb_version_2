@@ -24,7 +24,7 @@ const props = defineProps({
                 <RouterLink to="/login" :class="{
                     'text-decoration-none,text-white': true,  // siempre
                     'text-dark': !home             // solo si no es home
-                }" style="font-size: rem;">Iniciar sesion</RouterLink>
+                }" >Iniciar sesion</RouterLink>
             </div>
             <div class="col-3">
                 <RouterLink to="/login" :class="{
