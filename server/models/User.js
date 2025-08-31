@@ -19,7 +19,6 @@ User.init(
     },
     name: {
       type: DataTypes.STRING(200),
-      allowNull: false
     },
     password: {
       type: DataTypes.STRING(200),
@@ -28,6 +27,7 @@ User.init(
     email: {
       type: DataTypes.STRING(200),
       allowNull: false,
+      unique: true,
       validate: { isEmail: true }
     }
   },

@@ -8,6 +8,11 @@ export async function findById(id) {
   return await models.User.findByPk(id);
 }
 
+export async function findByEmail(email){
+  return await models.User.findOne({where :{email : email}} );
+
+}
+
 export async function create(data) {
   return await models.User.create(data);
 }

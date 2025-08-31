@@ -128,12 +128,9 @@ async function fetchLatestAlbums() {
         </div>
 
         <div class="d-flex justify-content-center mt-4 mb-5">
-            <a href="/" target="_blank" rel="noopener"
-                class="btn btn-outline-danger d-flex align-items-center justify-content-center mt-3 gap-2"
-                style="border-radius: 0.5rem; padding: 0.5rem 0.2rem; text-decoration: none; width: 15%;">
-                <i class="fas fa-image" style="font-size: 1.5rem;"></i>
-                <span style="font-weight: 500; font-size: 0.8rem;">Ver todas las fotos</span>
-            </a>
+             <RouterLink to="/albums" class="
+                    'text-decoration-none px-3 py-2 btn btn-danger rounded fw-bold" style="font-size: 1rem;">Ver todos los albumes</RouterLink>
+            
         </div>
     </div>
 </template>
