@@ -55,7 +55,9 @@ export async function list(q) {
 }
 
 export async function findById(id) {
-  return await models.Album.findByPk(id);
+  return await models.Album.findByPk(id, {
+      include: [{ model: models.Photo, order: [["photo_id", "ASC"]] }],
+    } );
 }
 
 export async function create(data, cover) {

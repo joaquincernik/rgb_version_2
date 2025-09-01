@@ -8,11 +8,13 @@ import { useAuthStore } from "../stores/auth";
 import Forbidden from "../views/Forbidden.vue";
 import CreateAlbum from "../views/CreateAlbum.vue";
 import EditAlbum from "../views/EditAlbum.vue";
+import AlbumDetail from "../views/AlbumDetail.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/albums", name: "Albums", component: Albums },
   { path: "/login", name: "Login", component: Login },
   { path: "/register", name: "Register", component: Register },
+  { path: "/albums/detail/:id", name: "AlbumDetail", component: AlbumDetail },
   {
     path: "/admin",
     name: "Admin",

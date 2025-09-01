@@ -45,6 +45,7 @@ const upload = multer({
 router.get("/", albumController.getAlbums);
 router.get("/list", albumController.listAlbums);
 router.get("/list/:id", albumController.listAlbumDetail);
+//router.get("/photos/:id", albumController.listPhotos);
 
 const fields = upload.fields([
   { name: "cover", maxCount: 1 },

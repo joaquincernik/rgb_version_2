@@ -29,6 +29,9 @@ export async function listAlbums(req, res, next) {
 export async function listAlbumDetail(req, res, next) {
   try {
     const album = await albumService.findById(req.params.id);
+    console.log("====================================");
+    console.log(album.Photos);
+    console.log("====================================");
     res.json(album);
   } catch (err) {
     next(err);
@@ -53,28 +56,22 @@ export async function createAlbum(req, res, next) {
           url: `/uploads/${req.files.cover[0].filename}`,
         }
       : null;
+
+    console.log("====================================");
+    console.log(req.files?.images);
+    console.log("====================================");
     const album = await albumService.create(req.body, cover.filename);
-    console.log('====================================');
-    console.log(req.files);
-    console.log('====================================');
     if (req.files?.images) {
       const images = (req.files?.images || []).map((f) => ({
         filename: f.filename,
         url: `/uploads/${f.filename}`,
       }));
 
-      console.log("====================================");
-      console.log(images);
-      console.log("====================================");
       const result = await Promise.all(
         images.map((img) => {
-          console.log("====================================");
-          console.log(img);
-          console.log("====================================");
           const a = photoService.create(img, album.album_id);
         })
       );
-      res.status(200).json(result);
     }
 
     res.status(200).json(album);
@@ -94,10 +91,8 @@ export async function updateAlbum(req, res, next) {
       patch.cover = req.file.filename;
     }
     await album.update(patch);
-    console.log("====================================");
-    console.log(album);
-    console.log("====================================");
-    res.json({ album });
+
+    res.status(200).json({ album });
   } catch (err) {
     next(err);
   }

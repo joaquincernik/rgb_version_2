@@ -45,7 +45,7 @@ async function submit() {
 
     form.append('cover', coverFile.value);
 
-    if (files.length > 0) {
+    if (files.value.length > 0) {
 
         files.value.forEach(f => form.append('images', f));
     }

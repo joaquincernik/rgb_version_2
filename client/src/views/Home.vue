@@ -123,7 +123,7 @@ async function fetchLatestAlbums() {
         <p v-else-if="errorAlbums">{{ errorAlbums }}</p>
         <div v-else class="row">
             <div v-for="a in latestAlbums" :key="a.album_id" class="col-md-4 py-2">
-                <CardAlbum :title="a.name" :date="a.date" :srcImg="a.cover" :type="a.link" />
+                <CardAlbum :title="a.name" :date="a.date" :srcImg="a.cover" :id="a.album_id" :type="a.link" />
             </div>
         </div>
 
