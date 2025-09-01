@@ -5,14 +5,15 @@ const props = defineProps({
     type: String,
     title: String,
     date: String,
-    edit: Boolean
+    edit: Boolean,
+    id: Number
 })
 
 
 </script>
 <template>
     <div>
-        <img :src="`/images/${srcImg}`" :alt="title"
+        <img :src="`/uploads/${srcImg}`" :alt="title"
             style="width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 1rem;"></img>
     </div>
     <div class="pt-2 pb-4 ">
@@ -25,6 +26,6 @@ const props = defineProps({
             borderRadius: '0.8rem'
         }">{{ type ? "Video" : "Foto" }}</span>
 
-        <a v-if="edit" class="btn py-1 px-3 mx-1 text-white bg-primary  fw-bold" style="font-size: 0.7rem; border-radius: 0.8rem;">Editar</a>
+        <a v-if="edit" :href="`/admin/albums/${id}/edit`" class="btn py-1 px-3 mx-1 text-white bg-primary  fw-bold" style="font-size: 0.7rem; border-radius: 0.8rem;">Editar</a>
     </div>
 </template>

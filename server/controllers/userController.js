@@ -66,14 +66,16 @@ export async function logUser(req, res, next) {
     if (!user) {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
-
+    console.log('====================================');
+    console.log(user);
+    console.log('====================================');
     const ok = await bcrypt.compare(password, user.password);
     if (!ok) {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
 
     // Guardar datos mínimos en sesión (nunca guardes el hash)
-    const rol = user.id == 3 ? "admin" : "user";
+    const rol = user.id == process.env.ADMIN_ID ? "admin" : "user";
 
     req.session.user = { id: user.id, email: user.email, rol: rol };
     return res.json({ user: req.session.user });

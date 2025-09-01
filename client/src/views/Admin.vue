@@ -88,7 +88,7 @@ function next() { goTo(page.value + 1) }
         <p v-else-if="errorAlbums">{{ errorAlbums }}</p>
         <div v-else class="row mt-5">
             <div v-for="a in albums" :key="a.album_id" class="col-md-4 py-2">
-                <CardAlbum :title="a.name" :date="a.date" :srcImg="a.cover" :type="a.link" :edit="true" />
+                <CardAlbum :title="a.name" :id="a.album_id" :date="a.date" :srcImg="a.cover" :type="a.link" :edit="true" />
             </div>
         </div>
 

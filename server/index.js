@@ -40,6 +40,18 @@ app.use("/api/users", userRouter)
 app.use("/api/albums", albumRouter)
 app.use("/api/photos", photoRouter)
 
+
+
+// Manejo de errores de multer (mensajes claros)
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({ ok: false, error: err.message });
+  }
+  if (err) {
+    return res.status(400).json({ ok: false, error: err.message });
+  }
+  next();
+});
 //yt
 app.get("/api/youtube/latest", async (req, res) => {
   try {

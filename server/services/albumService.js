@@ -58,8 +58,12 @@ export async function findById(id) {
   return await models.Album.findByPk(id);
 }
 
-export async function create(data) {
-  return await models.Album.create(data);
+export async function create(data, cover) {
+  const albuToCreate = {
+    ...data,
+    cover: cover
+  }
+  return await models.Album.create(albuToCreate);
 }
 
 export async function update(id, data) {

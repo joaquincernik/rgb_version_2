@@ -9,7 +9,13 @@ export async function findById(id) {
 }
 
 export async function findByEmail(email){
-  return await models.User.findOne({where :{email : email}} );
+  const user = await models.User.findOne({where :{email : email}} );
+  const rol = user.id === 3 ? 'admin' : 'user'
+  const userFound = {
+    ...user.dataValues,
+    rol : rol
+  }
+  return userFound;
 
 }
 

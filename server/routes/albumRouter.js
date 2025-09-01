@@ -1,26 +1,34 @@
 import { Router } from "express";
 import * as albumController from "../controllers/albumController.js";
 import multer from "multer";
-import path from 'path';
-import { fileURLToPath } from 'url';
- 
+import path from "path";
+import fs from "fs";
+import crypto from "crypto";
+import { fileURLToPath } from "url";
+import { isAdmin } from "../middlewares/isAdmin.js";
+
 const router = Router();
 // __dirname no existe en ESM → lo definimos manualmente
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const uploadsDir = path.resolve(__dirname, "../uploads");
+// Crear la carpeta si no existe
+fs.mkdirSync(uploadsDir, { recursive: true });
 
 // Configuración de multer (disco)
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, path.join(__dirname, 'uploads')),
+  destination: (req, file, cb) => cb(null, uploadsDir),
   filename: (req, file, cb) => {
     // nombre único: timestamp + nombre original saneado
-    const ext = path.extname(file.originalname);
-    const base = path
+    const base = file.fieldname + "-" + path.basename(file.originalname);
+    /* const base = path
       .basename(file.originalname, ext)
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-');
-    cb(null, `${Date.now()}-${base}${ext}`);
-  }
+      .replace(/[^a-z0-9]+/g, "-"); */
+    const unique = crypto.randomBytes(6).toString("hex"); // 12 caracteres
+
+    cb(null, `${unique}-${base}`);
+  },
 });
 // Validación de tipo y límite de tamaño
 /* function fileFilter(req, file, cb) {
@@ -34,39 +42,16 @@ const upload = multer({
   storage,
 });
 
-
-
 router.get("/", albumController.getAlbums);
 router.get("/list", albumController.listAlbums);
-router.post("/create", upload.array("images"), (req, res) => {
-    console.log('====================================');
-    console.log(req.file);
-    console.log(req.body);
+router.get("/list/:id", albumController.listAlbumDetail);
 
-    console.log('====================================');
-/*   const files = (req.files || []).map((f) => ({
-    originalname: f.originalname,
-    filename: f.filename,
-    url: `/uploads/${f.filename}`,
-  }));
- */
-  res.json({
-    ok: true,
-    message: "Imágenes subidas",
-    //files,
-    fields: req.body,
-  });
-});
+const fields = upload.fields([
+  { name: "cover", maxCount: 1 },
+  { name: "images", maxCount: 1000 },
+]);
+router.post("/create", isAdmin,fields, albumController.createAlbum);
+router.put('/edit/:id', isAdmin,upload.single('cover'), albumController.updateAlbum)
 
-// Manejo de errores de multer (mensajes claros)
-router.use((err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    return res.status(400).json({ ok: false, error: err.message });
-  }
-  if (err) {
-    return res.status(400).json({ ok: false, error: err.message });
-  }
-  next();
-});
 
 export default router;

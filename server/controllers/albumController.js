@@ -1,4 +1,5 @@
 import * as albumService from "../services/albumService.js";
+import * as photoService from "../services/photoService.js";
 
 export async function getAlbums(req, res, next) {
   try {
@@ -25,6 +26,14 @@ export async function listAlbums(req, res, next) {
   }
 }
 
+export async function listAlbumDetail(req, res, next) {
+  try {
+    const album = await albumService.findById(req.params.id);
+    res.json(album);
+  } catch (err) {
+    next(err);
+  }
+}
 
 export async function getAlbum(req, res, next) {
   try {
@@ -38,8 +47,37 @@ export async function getAlbum(req, res, next) {
 
 export async function createAlbum(req, res, next) {
   try {
-    const album = await albumService.create(req.body);
-    res.status(201).json(album);
+    const cover = (await req.files?.cover?.[0])
+      ? {
+          filename: req.files.cover[0].filename,
+          url: `/uploads/${req.files.cover[0].filename}`,
+        }
+      : null;
+    const album = await albumService.create(req.body, cover.filename);
+    console.log('====================================');
+    console.log(req.files);
+    console.log('====================================');
+    if (req.files?.images) {
+      const images = (req.files?.images || []).map((f) => ({
+        filename: f.filename,
+        url: `/uploads/${f.filename}`,
+      }));
+
+      console.log("====================================");
+      console.log(images);
+      console.log("====================================");
+      const result = await Promise.all(
+        images.map((img) => {
+          console.log("====================================");
+          console.log(img);
+          console.log("====================================");
+          const a = photoService.create(img, album.album_id);
+        })
+      );
+      res.status(200).json(result);
+    }
+
+    res.status(200).json(album);
   } catch (err) {
     next(err);
   }
@@ -47,9 +85,19 @@ export async function createAlbum(req, res, next) {
 
 export async function updateAlbum(req, res, next) {
   try {
-    const album = await albumService.update(req.params.id, req.body);
-    if (!album) return res.status(404).json({ error: "No existe" });
-    res.json(album);
+    const { name, date, link } = req.body;
+    const album = await albumService.findById(req.params.id);
+    if (!album) return res.status(404).json({ error: "No encontrado" });
+
+    const patch = { name, date, link };
+    if (req.file) {
+      patch.cover = req.file.filename;
+    }
+    await album.update(patch);
+    console.log("====================================");
+    console.log(album);
+    console.log("====================================");
+    res.json({ album });
   } catch (err) {
     next(err);
   }
