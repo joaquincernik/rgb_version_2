@@ -52,6 +52,8 @@ const fields = upload.fields([
   { name: "images", maxCount: 1000 },
 ]);
 router.post("/create", isAdmin,fields, albumController.createAlbum);
+router.post("/remove/:id", isAdmin,albumController.deleteAlbum);
+
 router.put('/edit/:id', isAdmin,upload.single('cover'), albumController.updateAlbum)
 
 

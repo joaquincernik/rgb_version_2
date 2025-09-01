@@ -1,5 +1,5 @@
 <script setup>
-
+import { ref } from 'vue'
 const props = defineProps({
     srcImg: String,
     type: String,
@@ -8,7 +8,27 @@ const props = defineProps({
     edit: Boolean,
     id: Number
 })
+ 
+const result = ref()
+const success = ref(false)
+const error = ref()
 
+async function deleteAlbum() {
+    try {
+        const res = await fetch(`/api/albums/remove/${props.id}`, {
+            method: 'POST',
+        })
+        console.log('====================================');
+        console.log(res);
+        console.log('====================================');
+        result.value = await res.json()
+        success.value = true
+        window.location.href = '/admin'
+    } catch (e) {
+        error.value = e.message
+    } 
+}
+ 
 
 </script>
 <template>
@@ -31,6 +51,8 @@ const props = defineProps({
 
             <a v-if="edit" :href="`/admin/albums/${id}/edit`" class="btn py-1 px-3 mx-1 text-white bg-primary  fw-bold"
                 style="font-size: 0.7rem; border-radius: 0.8rem;">Editar</a>
+             <a v-if="edit"  @click.prevent.stop="deleteAlbum" class="btn py-1 px-3 mx-1 text-white bg-danger  fw-bold"
+                style="font-size: 0.7rem; border-radius: 0.8rem;">Borrar</a>
         </div>
     </a>
 </template>

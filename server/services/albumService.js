@@ -69,11 +69,11 @@ export async function create(data, cover) {
 }
 
 export async function update(id, data) {
-  const [rows] = await models.Album.update(data, { where: { id } });
+  const [rows] = await models.Album.update(data, { where: { album_id : id } });
   if (rows === 0) return null;
   return await findById(id);
 }
 
 export async function remove(id) {
-  return await models.Album.destroy({ where: { id } });
+  return await models.Album.destroy({ where: { album_id : id } });
 }

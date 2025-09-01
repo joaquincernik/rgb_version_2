@@ -101,8 +101,15 @@ export async function updateAlbum(req, res, next) {
 export async function deleteAlbum(req, res, next) {
   try {
     const deleted = await albumService.remove(req.params.id);
-    if (!deleted) return res.status(404).json({ error: "No existe" });
-    res.status(204).end();
+    if (!deleted){
+      return res.status(404).json({ error: "No existe" });
+    }
+    else{
+      console.log('====================================');
+      console.log("apaopopaopo");
+      console.log('====================================');
+      res.status(200).json("borrado");
+    }
   } catch (err) {
     next(err);
   }
