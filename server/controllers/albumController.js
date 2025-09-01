@@ -29,9 +29,7 @@ export async function listAlbums(req, res, next) {
 export async function listAlbumDetail(req, res, next) {
   try {
     const album = await albumService.findById(req.params.id);
-    console.log("====================================");
-    console.log(album.Photos);
-    console.log("====================================");
+    
     res.json(album);
   } catch (err) {
     next(err);
@@ -57,9 +55,6 @@ export async function createAlbum(req, res, next) {
         }
       : null;
 
-    console.log("====================================");
-    console.log(req.files?.images);
-    console.log("====================================");
     const album = await albumService.create(req.body, cover.filename);
     if (req.files?.images) {
       const images = (req.files?.images || []).map((f) => ({
@@ -105,9 +100,6 @@ export async function deleteAlbum(req, res, next) {
       return res.status(404).json({ error: "No existe" });
     }
     else{
-      console.log('====================================');
-      console.log("apaopopaopo");
-      console.log('====================================');
       res.status(200).json("borrado");
     }
   } catch (err) {

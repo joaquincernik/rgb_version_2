@@ -13,6 +13,8 @@ const previews = ref([]);       // blob urls
 
 const coverFile = ref(null);
 const previewCover = ref(null);
+const link = ref(null)
+const isVideo = ref(false)        // ✅ checkbox “es video”
 
 const result = ref(null);
 
@@ -42,9 +44,8 @@ async function submit() {
     const form = new FormData();
     form.append('name', name.value);
     form.append('date', date.value);
-
     form.append('cover', coverFile.value);
-
+    link.value? form.append('cover', coverFile.value) : '';
     if (files.value.length > 0) {
 
         files.value.forEach(f => form.append('images', f));
@@ -97,9 +98,21 @@ async function submit() {
                 </label>
                 <img v-if="previewCover" :src="previewCover" class="mb-4"
                     style="width:10%; height:120px; object-fit:cover;"></img>
+
+                <div class="form-check my-2">
+                    <input id="chkVideo" class="form-check-input" type="checkbox" v-model="isVideo" />
+                    <label class="form-check-label" for="chkVideo">Este álbum es de video</label>
+                </div>
+
+
                 <label>
                     <span>Imágenes </span>
-                    <input type="file" class="form-control" accept="image/*" multiple @change="onFilesChange" />
+                    <input type="file" class="form-control" accept="image/*" :disabled="isVideo" multiple @change="onFilesChange" />
+                </label>
+
+                 <label>
+                    <span>Link de video</span>
+                    <input v-model="link" class="form-control" :disabled="!isVideo"></input>
                 </label>
 
                 <div v-if="previews.length" class="grid pb-4">

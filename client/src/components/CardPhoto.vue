@@ -6,9 +6,14 @@ const props = defineProps({
     title: String,
     id: Number
 })
-const emit = defineEmits(['add'])
+const emit = defineEmits(['open', 'add'])
 
 const copied = ref(false)
+
+
+// -------
+
+function abrir() { emit('open', { photo_id: props.id }) }
 
 function agregar() {
     emit('add', { photo_id: props.id, title: props.title, link: props.srcImg })
@@ -29,7 +34,7 @@ async function copiarNombre() {
     <div class="pb-1 pt-2">
         <h3 class="ps-1 text-muted text-center" style="font-size: .7rem;">{{ title }}</h3>
     </div>
-    <div>
+    <div @click="abrir" style="cursor: zoom-in">
         <img :src="`/uploads/${srcImg}`" :alt="title"
             style="width:100%; aspect-ratio:3/2; object-fit:cover; object-position:center; border-radius:1rem;">
     </div>

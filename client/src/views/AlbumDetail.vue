@@ -1,5 +1,6 @@
 <script setup>
 import CardPhoto from '../components/CardPhoto.vue'
+import LightboxCarousel from '../components/LightboxCarousel.vue'
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -14,6 +15,17 @@ const errorAlbums = ref('')
 const selectedPhotos = ref([])           // [{photo_id, title, link}]
 const copiedAll = ref(false)
 const idsSet = new Set()                 // para evitar duplicados (no va al template)
+
+// === Lightbox ===
+const showLightbox = ref(false)
+const startIndex = ref(0)
+
+function openLightbox({ photo_id }) {
+    const idx = album.value.Photos.findIndex(p => p.photo_id === photo_id)
+    startIndex.value = Math.max(0, idx)
+    showLightbox.value = true
+}
+
 
 function handleAddToOrder(photo) {
     if (!photo || !photo.photo_id) return
@@ -78,6 +90,35 @@ async function fetchAlbums() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 }
+
+async function copyPedido() {
+  const text = pedidoTexto.value
+
+  try {
+    // Contexto seguro: https o localhost
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      await navigator.clipboard.writeText(text)
+    } else {
+      // Fallback para http o navegadores viejos
+      const ta = document.createElement('textarea')
+      ta.value = text
+      ta.setAttribute('readonly', '')
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+
+    // Feedback visual
+    copiedAll.value = true
+    setTimeout(() => (copiedAll.value = false), 1200)
+  } catch (e) {
+    console.error('Error copiando:', e)
+    // Si querés, mostrás un toast/alert acá
+  }
+}
 </script>
 
 <template>
@@ -91,9 +132,13 @@ async function fetchAlbums() {
 
             <div class="row my-3">
                 <div v-for="a in album.Photos" :key="a.photo_id" class="col-md-3 py-2">
-                    <CardPhoto :id="a.photo_id" :title="a.link" :srcImg="a.link" @add="handleAddToOrder" />
+                    <CardPhoto :id="a.photo_id" :title="a.link" :srcImg="a.link" @open="openLightbox"
+                        @add="handleAddToOrder" />
                 </div>
             </div>
+
+            <!-- Carrusel / Lightbox -->
+            <LightboxCarousel v-model:show="showLightbox" :images="album.Photos" :start-index="startIndex" />
 
             <!-- Pedido -->
             <div class="p-5 my-5 rounded shadow" style="background-color: rgba(237,242,244,.3);">
@@ -112,7 +157,8 @@ async function fetchAlbums() {
                 <p v-else class="text-muted mb-3">(todavía no agregaste fotos)</p>
 
                 <div class="d-flex align-items-center pt-4 gap-2">
-                    <button class="btn bg-pedido px-3 text-white fw-bold" :disabled="selectedPhotos.length === 0" @click="copyPedido">
+                    <button class="btn bg-pedido px-3 text-white fw-bold" :disabled="selectedPhotos.length === 0"
+                        @click="copyPedido">
                         {{ copiedAll ? '¡Pedido copiado!' : 'Copiar pedido' }}
                     </button>
                     <button class="btn btn-outline-success px-3 fw-bold" :disabled="selectedPhotos.length === 0"
@@ -136,6 +182,9 @@ async function fetchAlbums() {
     /* suaviza el hover */
 }
 
+.bg-pedido:disabled{
+   background-color: gray;
+}
 .bg-pedido:hover {
     background-color: #27476e;
     /* un azul más claro */
