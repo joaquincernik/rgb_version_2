@@ -6,13 +6,16 @@ const props = defineProps({
     title: String,
     date: String,
     edit: Boolean,
-    id: Number
+    id: Number,
+    linkYt: String
 })
  
 const result = ref()
 const success = ref(false)
 const error = ref()
 
+const link = ref()
+link.value = props.linkYt ? props.linkYt : `/albums/detail/${props.id}`  
 async function deleteAlbum() {
     try {
         const res = await fetch(`/api/albums/remove/${props.id}`, {
@@ -32,13 +35,13 @@ async function deleteAlbum() {
 
 </script>
 <template>
-    <a class="text-decoration-none text-dark" :href="`/albums/detail/${id}`">
+    <a class="text-decoration-none text-dark" :href="link" >
         <div>
             <img :src="`/uploads/${srcImg}`" :alt="title"
                 style="width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 1rem;"></img>
         </div>
     </a>
-    <a class="text-decoration-none text-dark" :href="`/albums/detail/${id}`">
+    <a class="text-decoration-none text-dark" :href="link">
         <div class="pt-2 pb-4 ">
             <h3 class="pt-2 ps-1" style="font-weight: bold; font-size: 1rem;">{{ title }}</h3>
             <h4 class="ps-1" style="font-weight: 300; font-size: 0.8rem;">{{ date }}</h4>

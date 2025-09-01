@@ -141,7 +141,7 @@ async function copyPedido() {
             <LightboxCarousel v-model:show="showLightbox" :images="album.Photos" :start-index="startIndex" />
 
             <!-- Pedido -->
-            <div class="p-5 my-5 rounded shadow" style="background-color: rgba(237,242,244,.3);">
+            <div class="pedido-box p-5 my-5 rounded shadow" style="background-color: rgba(237,242,244,.3);">
                 <p class="mb-2">
                     Hola! Quiero realizar mi pedido del álbum <b>{{ album.name }}</b>:
                 </p>
@@ -190,5 +190,18 @@ async function copyPedido() {
     /* un azul más claro */
     transform: scale(1.05);
     /* agrandar un poquito */
+}
+/* Mobile-only: pedido section */
+@media (max-width: 576px) {
+  .pedido-box { padding: 1rem !important; }
+  .pedido-box .d-flex { flex-wrap: wrap; gap: 8px; }
+  .pedido-box .btn { width: 100%; }
+  .pedido-box ul { margin-left: 0; }
+}
+/* Phablets/tablets chicas */
+@media (max-width: 768px) {
+  .pedido-box { padding: 1.25rem !important; }
+  .pedido-box .d-flex { flex-wrap: wrap; gap: 10px; }
+  .pedido-box .btn { width: 100%; }
 }
 </style>

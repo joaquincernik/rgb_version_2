@@ -133,4 +133,18 @@ async function submit() {
     padding-top: 0.2rem;
     padding-bottom: 0.8rem;
 }
+/* Mobile-only: friendlier previews and spacing */
+@media (max-width: 576px) {
+  #form-album { padding: 1rem !important; }
+  #form-album img { width: 45% !important; height: 100px !important; margin-right: 8px; }
+  #form-album .grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  #form-album button { width: 100%; }
+}
+/* Phablets/tablets chicas */
+@media (max-width: 768px) {
+  #form-album { padding: 1.25rem !important; }
+  #form-album img { width: 30% !important; height: 110px !important; }
+  #form-album .grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  #form-album button { width: 100%; }
+}
 </style>

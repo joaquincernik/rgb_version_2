@@ -87,4 +87,14 @@ async function submit() {
     /* un rojo más claro */
     transform: scale(1.05);
 }
+/* Mobile-only: full-width auth form */
+@media (max-width: 576px) {
+  .container .bg-white.p-5.shadow-lg { width: 100% !important; padding: 2rem !important; }
+  #loginForm { width: 100% !important; }
+}
+/* Phablets/tablets chicas */
+@media (max-width: 768px) {
+  .container .bg-white.p-5.shadow-lg { width: 90% !important; padding: 2.25rem !important; }
+  #loginForm { width: 100% !important; }
+}
 </style>

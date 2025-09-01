@@ -31,3 +31,30 @@
     padding: 0.8rem 1.5rem; 
     border-radius: 30px;
 } 
+
+/* Mobile-only tweaks (no changes on desktop) */
+@media (max-width: 576px) {
+  #navbar { 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    padding-top: 1.25rem; 
+  }
+  #navbar .col-3 { 
+    flex: 1 1 100%; 
+    max-width: 100%; 
+    padding: 6px 0; 
+    text-align: center; 
+  }
+  .boton, .boton-admin { 
+    width: 100%; 
+    display: inline-block; 
+    text-align: center; 
+  }
+}
+
+/* Phablets/tablets chicas */
+@media (max-width: 768px) {
+  #navbar { flex-wrap: wrap; gap: 10px; }
+  #navbar .col-3 { flex: 0 0 50%; max-width: 50%; padding: 6px 0; text-align: center; }
+  .boton, .boton-admin { width: 100%; display: inline-block; text-align: center; }
+}

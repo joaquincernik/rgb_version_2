@@ -50,3 +50,14 @@ async function copiarNombre() {
         </button>
     </div>
 </template>
+
+<style scoped>
+@media (max-width: 576px) {
+  .pt-2.d-flex { flex-wrap: wrap; gap: 8px; }
+  .pt-2.d-flex > .btn { width: 100%; font-size: .8rem !important; }
+}
+@media (max-width: 768px) {
+  .pt-2.d-flex { flex-wrap: wrap; gap: 10px; }
+  .pt-2.d-flex > .btn { width: 100%; }
+}
+</style>

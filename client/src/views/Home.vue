@@ -63,6 +63,7 @@ async function fetchLatestAlbums() {
 
 <template>
     <div
+        class="home-hero"
         style=" background-image: url('/bg-home.jpg'); background-size: cover; background-position: center; width: 100vw; height: 100vh;">
         <div class="container">
             <Header :home="true" />
@@ -70,9 +71,11 @@ async function fetchLatestAlbums() {
         <div class="d-flex justify-content-center align-items-center" style="padding-top: 10%;">
             <div class="d-flex flex-column text-center">
                 <h1
+                    class="home-hero-title"
                     style="padding-bottom: 0; margin-bottom: 0;font-family: Crimson Text,serif;color: #FFFFFF; font-size: 6rem;">
                     RGB</h1>
                 <h3
+                    class="home-hero-subtitle"
                     style="font-family: Playwrite DE Grund, cursive; font-optical-sizing: auto;  color: rgba(255, 255, 255, 0.3);">
                     Artes graficas</h3>
             </div>
@@ -123,7 +126,7 @@ async function fetchLatestAlbums() {
         <p v-else-if="errorAlbums">{{ errorAlbums }}</p>
         <div v-else class="row">
             <div v-for="a in latestAlbums" :key="a.album_id" class="col-md-4 py-2">
-                <CardAlbum :title="a.name" :date="a.date" :srcImg="a.cover" :id="a.album_id" :type="a.link" />
+                <CardAlbum :title="a.name" :date="a.date" :srcImg="a.cover" :linkYt="a.link" :id="a.album_id" :type="a.link" />
             </div>
         </div>
 
@@ -138,5 +141,17 @@ async function fetchLatestAlbums() {
 <style>
 :root {
     color-scheme: light dark;
+}
+/* Mobile-only tweaks for Home hero */
+@media (max-width: 576px) {
+  .home-hero { height: 70vh !important; }
+  .home-hero-title { font-size: 3rem !important; }
+  .home-hero-subtitle { font-size: 1.1rem !important; }
+}
+/* Phablets/tablets chicas */
+@media (max-width: 768px) {
+  .home-hero { height: 80vh !important; }
+  .home-hero-title { font-size: 4rem !important; }
+  .home-hero-subtitle { font-size: 1.25rem !important; }
 }
 </style>

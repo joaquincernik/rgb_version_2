@@ -130,4 +130,7 @@ function tEnd(e){
 @media (max-width: 576px){
   .lb-thumb img{ width:64px; height:44px }
 }
+@media (max-width: 768px){
+  .lb-thumb img{ width:72px; height:50px }
+}
 </style>

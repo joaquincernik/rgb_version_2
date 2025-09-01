@@ -27,3 +27,14 @@ const props = defineProps({
         </div>
     </section>
 </template>
+
+<style scoped>
+@media (max-width: 576px) {
+  img { width: 100% !important; }
+  a.btn { width: 100% !important; }
+}
+@media (max-width: 768px) {
+  img { width: 100% !important; }
+  a.btn { width: 100% !important; }
+}
+</style>
