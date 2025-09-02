@@ -68,7 +68,7 @@ async function fetchLatestAlbums() {
         <div class="container">
             <Header :home="true" />
         </div>
-        <div class="d-flex justify-content-center align-items-center" style="padding-top: 10%;">
+        <div class="d-flex justify-content-center align-items-center" id="hero-div-text" style="padding-top: 10%;">
             <div class="d-flex flex-column text-center">
                 <h1
                     class="home-hero-title"
@@ -89,7 +89,7 @@ async function fetchLatestAlbums() {
         <p v-if="loading">Cargando...</p>
         <p v-else-if="error">{{ error }}</p>
         <div v-else class="row g-0 pb-5">
-            <div v-for="v in videos" :key="v.videoId" class="col-6">
+            <div v-for="v in videos" :key="v.videoId" class="col-md-6 pb-4">
                 <CardYt :title="v.title" :date="v.publishedAt" :linkImg="v.thumbnail" :linkYt="v.url" />
             </div>
         </div>
@@ -144,6 +144,9 @@ async function fetchLatestAlbums() {
 }
 /* Mobile-only tweaks for Home hero */
 @media (max-width: 576px) {
+#hero-div-text{
+    padding-top: 30% !important;
+}
   .home-hero { height: 70vh !important; }
   .home-hero-title { font-size: 3rem !important; }
   .home-hero-subtitle { font-size: 1.1rem !important; }
