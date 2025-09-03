@@ -12,7 +12,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
  
 const app = express();
-const PORT = process.env.PORT ?? 3000;
+const PORT = 8443;
 // __dirname no existe en ESM → lo definimos manualmente
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +26,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'dev_secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // en prod con HTTPS => true
+  cookie: { secure: true } // en prod con HTTPS => true
 }))
 
 await sequelize
@@ -40,7 +40,7 @@ app.use("/api/users", userRouter)
 app.use("/api/albums", albumRouter)
 app.use("/api/photos", photoRouter)
 
-
+app.use(express.static(path.join(__dirname, "..", "client", "dist"))); // ← CORREGIDO (sin espacio)
 
 // Manejo de errores de multer (mensajes claros)
 app.use((err, req, res, next) => {
@@ -52,12 +52,12 @@ app.use((err, req, res, next) => {
   }
   next();
 });
+
 //yt
 app.get("/api/youtube/latest", async (req, res) => {
   try {
     const url = new URL("https://www.googleapis.com/youtube/v3/search");
 
-    
     url.searchParams.set("key", process.env.API_KEY);
     url.searchParams.set("channelId", process.env.CHANNEL_ID);
     url.searchParams.set("part", "snippet");
@@ -84,8 +84,14 @@ app.get("/api/youtube/latest", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Error consultando YouTube" });
   }
+})
+
+// fallback para SPA (todas las rutas del front apuntan a index.html)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname,"..","client", "dist", "index.html"));
 });
 
 app.listen(PORT, () => {
   console.log(`API escuchando en http://localhost:${PORT}`);
 });
+
