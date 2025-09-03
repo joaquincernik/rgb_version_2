@@ -50,10 +50,14 @@ watch(menuOpen, (open) => {
                 <!-- Collapsible items -->
                 <div :class="['navbar-items', { open: menuOpen }]" id="navbar-items" role="menu">
                     <div class="col-3">
-                        <RouterLink to="/" :class="{
-                            'text-decoration-none,text-white': true,  // siempre
-                            'text-dark': !home             // solo si no es home
-                        }" @click="menuOpen = false">Inicio</RouterLink>
+                        <RouterLink
+                            to="/"
+                            :class="{
+                                'text-decoration-none text-white': true,  // siempre
+                                'text-dark': !home                         // solo si no es home
+                            }"
+                            @click="menuOpen = false"
+                        >Inicio</RouterLink>
                     </div>
                     <div class="col-3">
                         <RouterLink to="/albums" class="text-decoration-none boton" @click="menuOpen = false">Ver todas
@@ -69,16 +73,24 @@ watch(menuOpen, (open) => {
                     <!-- Si NO está logueado -->
                     <template v-if="!auth.user">
                         <div class="col-3">
-                            <RouterLink to="/login" :class="{
-                                'text-decoration-none,text-white': true,  // siempre
-                                'text-dark': !home             // solo si no es home
-                            }" @click="menuOpen = false">Iniciar sesion</RouterLink>
+                            <RouterLink
+                                to="/login"
+                                :class="{
+                                    'text-decoration-none text-white': true,  // siempre
+                                    'text-dark': !home                         // solo si no es home
+                                }"
+                                @click="menuOpen = false"
+                            >Iniciar sesion</RouterLink>
                         </div>
                         <div class="col-3">
-                            <RouterLink to="/register" :class="{
-                                'text-decoration-none,text-white': true,  // siempre
-                                'text-dark': !home             // solo si no es home
-                            }" @click="menuOpen = false">Registrarme</RouterLink>
+                            <RouterLink
+                                to="/register"
+                                :class="{
+                                    'text-decoration-none text-white': true,  // siempre
+                                    'text-dark': !home                         // solo si no es home
+                                }"
+                                @click="menuOpen = false"
+                            >Registrarme</RouterLink>
                         </div>
                     </template>
                     <template v-else>
@@ -91,11 +103,14 @@ watch(menuOpen, (open) => {
 
                         </div>
                         <div class="col-3">
-                            <button :class="{
-                                'text-decoration-none, btn': true,
-                                'text-white': home,
-                                'text-dark': !home
-                            }" @click="() => { auth.logout(); menuOpen = false }">
+                            <button
+                                :class="{
+                                    'text-decoration-none btn': true,
+                                    'text-white': home,
+                                    'text-dark': !home
+                                }"
+                                @click="() => { auth.logout(); menuOpen = false }"
+                            >
                                 Cerrar sesión
                             </button>
                         </div>
