@@ -52,10 +52,11 @@ watch(menuOpen, (open) => {
                     <div class="col-3">
                         <RouterLink
                             to="/"
-                            :class="{
-                                'text-decoration-none text-white': true,  // siempre
-                                'text-dark': !home                         // solo si no es home
-                            }"
+                          :class="{
+                                    'text-decoration-none btn': true,
+                                    'text-white': home,
+                                    'text-dark': !home
+                                }"
                             @click="menuOpen = false"
                         >Inicio</RouterLink>
                     </div>
@@ -75,9 +76,10 @@ watch(menuOpen, (open) => {
                         <div class="col-3">
                             <RouterLink
                                 to="/login"
-                                :class="{
-                                    'text-decoration-none text-white': true,  // siempre
-                                    'text-dark': !home                         // solo si no es home
+                               :class="{
+                                    'text-decoration-none btn': true,
+                                    'text-white': home,
+                                    'text-dark': !home
                                 }"
                                 @click="menuOpen = false"
                             >Iniciar sesion</RouterLink>
@@ -85,9 +87,10 @@ watch(menuOpen, (open) => {
                         <div class="col-3">
                             <RouterLink
                                 to="/register"
-                                :class="{
-                                    'text-decoration-none text-white': true,  // siempre
-                                    'text-dark': !home                         // solo si no es home
+                               :class="{
+                                    'text-decoration-none btn': true,
+                                    'text-white': home,
+                                    'text-dark': !home
                                 }"
                                 @click="menuOpen = false"
                             >Registrarme</RouterLink>
