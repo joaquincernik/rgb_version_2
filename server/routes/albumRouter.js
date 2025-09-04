@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
       .replace(/[^a-z0-9]+/g, "-"); */
     const unique = crypto.randomBytes(6).toString("hex"); // 12 caracteres
 
-    cb(null, `${unique}-${base}`);
+    cb(null, `${base}`);
   },
 });
 // Validación de tipo y límite de tamaño
