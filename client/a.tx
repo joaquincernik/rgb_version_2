@@ -1,0 +1,1000 @@
+ 1010  ls
+ 1011  screen -r
+ 1012  cd Proyecto-pagina-web
+ 1013  ls
+ 1014  git status
+ 1015  rm -r controller
+ 1016  cd ../
+ 1017  cd Proyecto-pagina-web-v4
+ 1018  ls
+ 1019  cp -r controller ../Proyecto-pagina-web
+ 1020  cd ../Proyecto-pagina-web
+ 1021  ls
+ 1022  git status
+ 1023  nano .gitignore 
+ 1024  ls
+ 1025  cd ../
+ 1026  cd Proyecto-pagina-web-v4
+ 1027  cd controller/
+ 1028  ls
+ 1029  nano albumsController.js 
+ 1030  screen -r
+ 1031  ls
+ 1032  cd ../middlewares/
+ 1033  ls
+ 1034  nano coverMulterMiddleware.js 
+ 1035  ls
+ 1036  cd Proyecto-pagina-web
+ 1037  ls
+ 1038  git fetch
+ 1039  git checkout serverEstilosNuevos 
+ 1040  ls
+ 1041  cd database/
+ 1042  ls
+ 1043  cd config/
+ 1044  ls
+ 1045  nano config.js 
+ 1046  cd ../
+ 1047  cd Proyecto-pagina-web-v4
+ 1048  ls
+ 1049  cd database
+ 1050  ls
+ 1051  cd config/
+ 1052  ls
+ 1053  nano config.js 
+ 1054  cd ../
+ 1055  cd Proyecto-pagina-web
+ 1056  ls
+ 1057  cd database/config/
+ 1058  ls
+ 1059  nano config.js 
+ 1060  git branch
+ 1061  screen -r
+ 1062  cd ../
+ 1063  cd Proyecto-pagina-web
+ 1064  cd public/
+ 1065  ls
+ 1066  rm -r images/
+ 1067  cd ../
+ 1068  cd Proyecto-pagina-web-v4
+ 1069  ls
+ 1070  cd public/
+ 1071  ls
+ 1072  pwd
+ 1073  cp -r /home/jcernik/Proyecto-pagina-web-v4/public/images /home/jcernik/Proyecto-pagina-web/public
+ 1074  cd ../
+ 1075  cd Proyecto-pagina-web
+ 1076  ls
+ 1077  git pull origin serverEstilosNuevos 
+ 1078  ls
+ 1079  cp logo-mejorado-calidad.png /public/images
+ 1080  cp logo-mejorado-calidad.png ~/public/images
+ 1081  cp logo-mejorado-calidad.png home/jcernik/Proyecto-pagina-web/public/images
+ 1082  pwd
+ 1083  cp /home/jcernik/Proyecto-pagina-web/logo-mejorado-calidad.png /home/jcernik/Proyecto-pagina-web/public/images/
+ 1084  screen -r
+ 1085  ls
+ 1086  cd public/
+ 1087  ls
+ 1088  cd css/
+ 1089  ls
+ 1090  nano nuevosEstilos.css 
+ 1091  git pull origin serverEstilosNuevos 
+ 1092  ls
+ 1093  cd ../
+ 1094  ls
+ 1095  pwd
+ 1096  cp /home/jcernik/Proyecto-pagina-web/favicon.png /home/jcernik/Proyecto-pagina-web/public/images/
+ 1097  screen -r
+ 1098  ls
+ 1099  cd public/
+ 1100  cd images/
+ 1101  ls
+ 1102  cd ../
+ 1103  cp /home/jcernik/Proyecto-pagina-web/favicon.png /home/jcernik/Proyecto-pagina-web/public/images/
+ 1104  screen -r
+ 1105  ls
+ 1106  cd views/
+ 1107  ls
+ 1108  cd partials/
+ 1109  ls
+ 1110  nano header.ejs 
+ 1111  cd ../
+ 1112  cd public/
+ 1113  cd images/
+ 1114  cd ../
+ 1115  ls
+ 1116  cd images/
+ 1117  ls
+ 1118  screen -r
+ 1119  ls
+ 1120  cd Proyecto-pagina-web
+ 1121  ls
+ 1122  cd public/
+ 1123  ls
+ 1124  cd css/
+ 1125  LS
+ 1126  ls
+ 1127  nano nuevosEstilos.css 
+ 1128  screen -r
+ 1129  cd ../
+ 1130  ls
+ 1131  cd public/
+ 1132  cd ../
+ 1133  cd views/
+ 1134  ls
+ 1135  nano index.ejs 
+ 1136  screen -r
+ 1137  nano index.ejs 
+ 1138  screen -r
+ 1139  mysql -u root
+ 1140  mysql -u jcernik -p jciua#2023
+ 1141  mysql -u jcernik jciua#2023
+ 1142  screen -r
+ 1143  git add .
+ 1144  git commit -m "hide header"
+ 1145  git push origin serverEstilosNuevos 
+ 1146  git status
+ 1147  screen -r 
+ 1148  git pull origin serverEstilosNuevos 
+ 1149  screen -r 
+ 1150  ls
+ 1151  cd Proyecto-pagina-web
+ 1152  ls
+ 1153  git status
+ 1154  screen -r
+ 1155  ls
+ 1156  cd Proyecto-pagina-web
+ 1157  ls
+ 1158  screen -r
+ 1159  curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb &&  sudo dpkg -i cloudflared.deb &&  sudo cloudflared service install eyJhIjoiNDI1MzBhNzIyMGNmNjUzNWQ5YWQwMDA1MWJjZWU5MWEiLCJ0IjoiZDY1MTdmOTYtNTk1ZS00NzQ4LTkwNzgtYTQ4MGQwMTMwMTFlIiwicyI6Ill6YzNPREV5WkRZdE1USXpPUzAwWmpsbUxXRTVNRFV0TTJOaE5qRXhNMlpsTldObCJ9
+ 1160  pwd
+ 1161  cd Proyecto-pagina-web
+ 1162  cd ..
+ 1163  cd Proyecto-pagina-web-v2/
+ 1164  screen
+ 1165  screen /r
+ 1166  screen -r
+ 1167  htop
+ 1168  screen -r
+ 1169  screen /r
+ 1170  screen -r
+ 1171  df -lh
+ 1172  screen -r
+ 1173  cd ...
+ 1174  ll
+ 1175  cd ..
+ 1176  ll
+ 1177  cd ..
+ 1178  ll
+ 1179  grep -r 'rossogustavo.zip' daniel/
+ 1180  sudo grep -r 'rossogustavo.zip' daniel/
+ 1181  su root
+ 1182  sudo grep -r 'rossogustavo.zip' daniel/
+ 1183  cd ..
+ 1184  sudo grep -r 'rossogustavo.zip' home/
+ 1185  ip a
+ 1186  screen /r
+ 1187  screen -r
+ 1188  ll
+ 1189  ip a
+ 1190  screen /r
+ 1191  screen -r
+ 1192  ip a
+ 1193  sudo poweroff
+ 1194  node app.js 
+ 1195  sudo apache2 stop
+ 1196  sudo service apache2 stop
+ 1197  node app.js 
+ 1198  node app.js
+ 1199  ls
+ 1200  cd views/
+ 1201  cd albums/
+ 1202  nano albumUpdate.ejs 
+ 1203  screen -r
+ 1204  node app.js 
+ 1205  ls
+ 1206  cd Proyecto-pagina-web/
+ 1207  node app.js 
+ 1208  vim app.js 
+ 1209  node app.js 
+ 1210  sudo apt-get install certbot
+ 1211  node app.js 
+ 1212  sudo service apache2 stop
+ 1213  node app.js 
+ 1214  cd ../
+ 1215  ls
+ 1216  cd Proyecto-pagina-web-v3
+ 1217  ls
+ 1218  node app.js
+ 1219  cd ../
+ 1220  cd Proyecto-pagina-web-v2
+ 1221  ls
+ 1222  cd Proyecto-pagina-web/
+ 1223  node app.js
+ 1224  cd ../
+ 1225  cd Proyecto-pagina-web-v3
+ 1226  ls
+ 1227  node app.js
+ 1228  cd ../
+ 1229  cd Proyecto-pagina-web-v4
+ 1230  ls
+ 1231  node app.js
+ 1232  npm install
+ 1233  node app.js
+ 1234  cd ../
+ 1235  ls
+ 1236  cd Proyecto-pagina-web
+ 1237  node app.js
+ 1238  cd ../
+ 1239  cd Proyecto-pagina-web-v4
+ 1240  ls
+ 1241  node app.js
+ 1242  cd ../
+ 1243  cd Proyecto-pagina-web
+ 1244  node app.js
+ 1245  git branch
+ 1246  git pull origin serverEstilosNuevos 
+ 1247  git status
+ 1248  nano .gitignore 
+ 1249  git status
+ 1250  nano .gitignore 
+ 1251  git status
+ 1252  nano .gitignore 
+ 1253  git status
+ 1254  git add .
+ 1255  git commit -m "cambios desde el server"
+ 1256  git push origin serverEstilosNuevos 
+ 1257  git pull origin serverEstilosNuevos 
+ 1258  git config pull.rebase false
+ 1259  git pull origin serverEstilosNuevos 
+ 1260  git push origin serverEstilosNuevos 
+ 1261  git pull origin serverEstilosNuevos 
+ 1262  git status
+ 1263  git add nuevosEstilos.css
+ 1264  git add public/css/nuevosEstilos.css
+ 1265  git status
+ 1266  git push origin serverEstilosNuevos 
+ 1267  git pull origin serverEstilosNuevos 
+ 1268  git commit -m "problema de merge"
+ 1269  git push origin serverEstilosNuevos 
+ 1270  git pull origin serverEstilosNuevos 
+ 1271  node app.js
+ 1272  git status
+ 1273  git pull origin serverEstilosNuevos 
+ 1274  node app.js
+ 1275  git pull origin serverEstilosNuevos 
+ 1276  node app.js
+ 1277  git status
+ 1278  git pull origin serverEstilosNuevos 
+ 1279  node app.js
+ 1280  exit
+ 1281  ll
+ 1282  screen -r
+ 1283  ls -ltr
+ 1284  cd Proyecto-pagina-web
+ 1285  ll
+ 1286  cd public/
+ 1287  ll
+ 1288  cd images/
+ 1289  ll
+ 1290  ls -ltr
+ 1291  cd ..
+ 1292  ll
+ 1293  cd .
+ 1294  pwd
+ 1295  exit
+ 1296  node app.js
+ 1297  sudo service apache2 stop
+ 1298  pwd
+ 1299  ls /l
+ 1300  ls l
+ 1301  ls
+ 1302  history
+ 1303  cd Proyecto-pagina-web
+ 1304  ll
+ 1305  node app.js
+ 1306  screen
+ 1307  ip a
+ 1308  ls
+ 1309  screen -r
+ 1310  sudo rm -r Proyecto-pagina-web-v2
+ 1311  ls
+ 1312  sudo rm -r Proyecto-pagina-web-v3
+ 1313  sudo rm -r Proyecto-pagina-web-v4
+ 1314  ls
+ 1315  rm 59-perrito1.jpeg 59-perrito2.jpeg
+ 1316  ls
+ 1317  rm 66-ol.jpg 66-perrito3.jpg 67-logo-final.png 
+ 1318  ls
+ 1319  rm 67-Screenshot\ from\ 2024-06-10\ 22-36-38.png 
+ 1320  rm 68-ol.jpg 
+ 1321  rm undefined-avatar5.jpeg undefined-logo-final.png undefined-perrito1.jpeg undefined-perrito2.jpeg 
+ 1322  ls
+ 1323  clear
+ 1324  ls
+ 1325  screen -r
+ 1326  cd copiar/
+ 1327  ls
+ 1328  cd ../
+ 1329  ls
+ 1330  sudo rm -r copiar
+ 1331  ls
+ 1332  cd cert/
+ 1333  ls
+ 1334  docker --version
+ 1335  sudo apt update
+ 1336  sudo apt install -y ca-certificates curl gnupg lsb-release
+ 1337  sudo mkdir -p /etc/apt/keyrings
+ 1338  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+ 1339  echo "deb [arch=$(dpkg --print-architecture) \
+ 1340  signed-by=/etc/apt/keyrings/docker.gpg] \
+ 1341  https://download.docker.com/linux/ubuntu \
+ 1342  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 1343  sudo apt update
+ 1344  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+ 1345  sudo systemctl enable docker
+ 1346  sudo systemctl start docker
+ 1347  sudo docker run hello-world
+ 1348  sudo usermod -aG docker $USER
+ 1349  newgrp docker
+ 1350  docker run -d   --name node-exporter   -p 9100:9100   --restart=unless-stopped   prom/node-exporter:latest
+ 1351  sudo apt update
+ 1352  sudo apt install python3-venv  
+ 1353  ls
+ 1354  python3 -m venv venv
+ 1355  source venv/bin/activate
+ 1356  exit
+ 1357  ls
+ 1358  touch reporter.py
+ 1359  nano reporter.py 
+ 1360  ls
+ 1361  source venv/bin/activate
+ 1362  pip install flask request jsonify
+ 1363  pip install flask requests jsonify
+ 1364  exit
+ 1365  python reporter.py 
+ 1366  python3 reporter.py 
+ 1367  source venv/bin/activate
+ 1368  python reporter.py 
+ 1369  nano reporter.py 
+ 1370  python reporter.py 
+ 1371  nano reporter.py 
+ 1372  python reporter.py 
+ 1373  screen -S reporter
+ 1374  exit
+ 1375  ls
+ 1376  cd Proyecto-pagina-web/
+ 1377  ls
+ 1378  cd ..
+ 1379  ls
+ 1380  cd ..
+ 1381  ls
+ 1382  pwd
+ 1383  cd jcernik/
+ 1384  ls
+ 1385  cd Proyecto-pagina-web/
+ 1386  ls
+ 1387  cd public/
+ 1388  ls
+ 1389  cd images/
+ 1390  ls
+ 1391  sudo mysql
+ 1392  sudo mysql -u jcernik -p
+ 1393  exit
+ 1394  ls
+ 1395  git clone /home/joaquincernik/Desktop/rgb_version_2/client/public/logo.png
+ 1396  git clone git@github.com:joaquincernik/rgb_version_2.git
+ 1397  git clone https://github.com/joaquincernik/rgb_version_2.git
+ 1398  ls
+ 1399  cd rgb_version_2/
+ 1400  cd client/
+ 1401  ls
+ 1402  npm install
+ 1403  nvm use 22
+ 1404  nvm install 22
+ 1405  npm install
+ 1406  cd ..
+ 1407  cd server/
+ 1408  ls
+ 1409  nvm use 22
+ 1410  npm install
+ 1411  sudo nano .env
+ 1412  cd ..
+ 1413  ls
+ 1414  sudo docker ps
+ 1415  cd Proyecto-pagina-web/
+ 1416  ls
+ 1417  cd public/
+ 1418  ls
+ 1419  pwd
+ 1420  rsync -aHAX --info=progress2 --partial "./images" "/home/jcernik/rgb_version_2/server/"
+ 1421  cd ..
+ 1422  ls
+ 1423  cd rgb_version_2/
+ 1424  ls
+ 1425  cd server/
+ 1426  ls
+ 1427  cd .
+ 1428  cd ..
+ 1429  ls
+ 1430  nvm use 22
+ 1431  npm install
+ 1432  ls
+ 1433  cd server/
+ 1434  ls
+ 1435  mv images uploads
+ 1436  ls
+ 1437  sudo ss -tulpn | grep ':3000'
+ 1438  npm run dev
+ 1439  screen -S server
+ 1440  cd ..
+ 1441  ls
+ 1442  screen -ls
+ 1443  screen -ls
+ 1444  screen -S webserver -X quit
+ 1445  screen -r tty1.webserver 
+ 1446  cd client/
+ 1447  ls
+ 1448  cd ..
+ 1449  ls
+ 1450  cd Proyecto-pagina-web/
+ 1451  LS
+ 1452  ls
+ 1453  nano app.js 
+ 1454  screen -r tty1.webserver 
+ 1455  ls
+ 1456  nano app.js 
+ 1457  screen -r tty1.webserver 
+ 1458  ls
+ 1459  nano app.js 
+ 1460  ls
+ 1461  cd ..
+ 1462  sudo nginx -t
+ 1463  ls
+ 1464  screen -r tty1.webserver 
+ 1465  cd rgb_version_2/
+ 1466  cd client/
+ 1467  npm run build
+ 1468  screen -r tty1.webserver 
+ 1469  ls
+ 1470  screen -r server 
+ 1471  screen -r tty1.webserver 
+ 1472  curl -i http://127.0.0.1:3000/api/health
+ 1473  curl -i http://127.0.0.1:3000/api/albums/list
+ 1474  screen -r tty1.webserver 
+ 1475  cd ..
+ 1476  cd server/
+ 1477  ls
+ 1478  sudo nano index.js 
+ 1479  screen -r server 
+ 1480  screen -r tty1.webserver 
+ 1481  screen -r server 
+ 1482  nano index.js 
+ 1483  cd ..
+ 1484  cd client/
+ 1485  ls
+ 1486  screen -r tty1.webserver 
+ 1487  cd rgb_version_2/
+ 1488  ls
+ 1489  cd client/
+ 1490  ls
+ 1491  screen -r tty1.webserver 
+ 1492  screen -r server 
+ 1493  screen -r tty1.webserver 
+ 1494  ls
+ 1495  cd src/
+ 1496  ls
+ 1497  cd components/
+ 1498  ls
+ 1499  cd ..
+ 1500  cd views/
+ 1501  nano Home.vue 
+ 1502  screen -r tty1.webserver 
+ 1503  cd ..
+ 1504  cd server/
+ 1505  ls
+ 1506  nano index.js 
+ 1507  cd ..
+ 1508  mv rgb_version_2 copia_rgb
+ 1509  git clone https://github.com/joaquincernik/rgb_version_2.git
+ 1510  cd copia_rgb/
+ 1511  ls
+ 1512  cd server
+ 1513  cp .env /home/jcernik/rgb_version_2/server/
+ 1514  cd ..
+ 1515  ls
+ 1516  cd client/
+ 1517  ls
+ 1518  cd public/
+ 1519  cp logo.png /home/jcernik/rgb_version_2/client/public/
+ 1520  cd ..
+ 1521  cd server/
+ 1522  .s
+ 1523  ls
+ 1524  rsync -aHAX --info=progress2 --partial "./uploads" "/home/jcernik/rgb_version_2/server/"
+ 1525  screen -r server 
+ 1526  cd ..
+ 1527  cd rgb_version_2/
+ 1528  ls
+ 1529  cd client/
+ 1530  ls
+ 1531  npm install
+ 1532  nvm use 22
+ 1533  npm install
+ 1534  ls
+ 1535  cd rgb_version_2/
+ 1536  cd client/
+ 1537  ls
+ 1538  cd src/
+ 1539  ls
+ 1540  cd vie
+ 1541  cd views/
+ 1542  ls
+ 1543  nano Albums.vue 
+ 1544  screen -r tty1.webserver 
+ 1545  ls
+ 1546  cd copia_rgb/
+ 1547  ls
+ 1548  cd client/
+ 1549  ls
+ 1550  cp server.js /home/jcernik/rgb_version_2/client/
+ 1551  cd ..
+ 1552  cd rgb_version_2/
+ 1553  ls
+ 1554  cd client/
+ 1555  npm run build
+ 1556  nvm use 22
+ 1557  npm run build
+ 1558  cd ..
+ 1559  cd server/
+ 1560  nano index.js 
+ 1561  nano .env
+ 1562  nano index.js 
+ 1563  screen -r tty1.webserver 
+ 1564  cd ..
+ 1565  ls
+ 1566  cd client/
+ 1567  npm run build
+ 1568  ls
+ 1569  screen -r tty1.webserver 
+ 1570  ls
+ 1571  screen -r tty1.webserver 
+ 1572  ls
+ 1573  cd rgb_version_2/
+ 1574  ls
+ 1575  git branch
+ 1576  git checkout main 
+ 1577  git checkout -b prod
+ 1578  cd server/
+ 1579  ls
+ 1580  rm index.js 
+ 1581  git checkout prod
+ 1582  git checkout production 
+ 1583  nano index.js 
+ 1584  cp index.js /home/jcernik/
+ 1585  git checkout prod
+ 1586  ls
+ 1587  cd ..
+ 1588  cd .
+ 1589  cd ..
+ 1590  ls
+ 1591  cp index.js ~/rgb_version_2/server/
+ 1592  cd rgb_version_2/
+ 1593  cd server/
+ 1594  ls
+ 1595  nano index.js 
+ 1596  screen -r tty1.webserver 
+ 1597  ls
+ 1598  git branch
+ 1599  git branch -d production
+ 1600  git branch -D production
+ 1601  git branch -D prueba 
+ 1602  screen -r tty1.webserver 
+ 1603  nmap 192.168.0.200
+ 1604  sudo apt install nmap
+ 1605  exit
+ 1606  ls
+ 1607  cd Proyecto-pagina-web/
+ 1608  ls
+ 1609  sudo cat .env
+ 1610  cat .env
+ 1611  cd database/
+ 1612  LS
+ 1613  ls
+ 1614  cd config/
+ 1615  ls
+ 1616  cat config.js 
+ 1617  screen -l
+ 1618  ls
+ 1619  cd ..
+ 1620  ls
+ 1621  cd ../
+ 1622  ls
+ 1623  cd controller/
+ 1624  ls
+ 1625  no userController.js 
+ 1626  cd Proyecto-pagina-web/
+ 1627  ls
+ 1628  cd controller/
+ 1629  cd ..
+ 1630  cd database/
+ 1631  cd models/
+ 1632  ls
+ 1633  sudo nano User.js 
+ 1634  screen -ls
+ 1635  sudo nano User.js 
+ 1636  screen -ls
+ 1637  screen -r tty.webserver
+ 1638  screen -r pts-1.webserver 
+ 1639  screen -r pts-1.webserver 
+ 1640  screen -ls
+ 1641  screen -r pts-1.webserver 
+ 1642  ls
+ 1643  cd rgb_version_2/
+ 1644  ls
+ 1645  cd server/
+ 1646  ls
+ 1647  cd middlewares/
+ 1648  ls
+ 1649  sudo mysql -p
+ 1650  sudo mysql -u jcernik -p
+ 1651  screen -r pts-1.webserver 
+ 1652  sudo apache stop
+ 1653  sudo apache2 stop
+ 1654  sudo service apache2 stop
+ 1655  cd Proyecto-pagina-web
+ 1656  screen
+ 1657  f /lh
+ 1658  df -lh
+ 1659  curl -s https://install.zerotier.com
+ 1660  curl -s https://install.zerotier.com | sudo bash
+ 1661  sudo zerotier-cli join af78bf9436beacda
+ 1662  ip a
+ 1663  ping www.google.com.ar
+ 1664  ip a
+ 1665  ping www.google.com.ar
+ 1666  uptime
+ 1667  sudo reboot
+ 1668  screen -ls
+ 1669  sudo mysql -u jcernik
+ 1670  sudo mysql -u jcernik -p
+ 1671  screen -ls
+ 1672  screen -r tty1.webserver 
+ 1673  source venv/bin/activate
+ 1674  python reporter.py
+ 1675  npm run dev
+ 1676  ls
+ 1677  nano index.js 
+ 1678  npm run dev
+ 1679  ls
+ 1680  nano index.js 
+ 1681  ls
+ 1682  rm index.js 
+ 1683  ls
+ 1684  touch index/js
+ 1685  touch index.js
+ 1686  nano index.js 
+ 1687  npm run dev
+ 1688  node index.js 
+ 1689  cd ..
+ 1690  cd rgb_version_2/
+ 1691  ls
+ 1692  nvm use 22
+ 1693  npm install
+ 1694  cd server/
+ 1695  ls
+ 1696  npm install
+ 1697  npm run dev
+ 1698  ls
+ 1699  node index.js
+ 1700  cd ..
+ 1701  cd Proyecto-pagina-web/
+ 1702  node app.js
+ 1703  cd ..
+ 1704  ls
+ 1705  cd rgb_version_2/
+ 1706  ls
+ 1707  cd server/
+ 1708  ls
+ 1709  node index.js 
+ 1710  nano index.js 
+ 1711  node index.js 
+ 1712  nano index.js 
+ 1713  rm index.js 
+ 1714  touch index.js
+ 1715  nano index.js 
+ 1716  node index.js 
+ 1717  nano index.js 
+ 1718  rm index.js 
+ 1719  touch index.js
+ 1720  nano index.js 
+ 1721  node index.js 
+ 1722  cd ..
+ 1723  cd client/
+ 1724  npm run build
+ 1725  cd ..
+ 1726  cd server/
+ 1727  node index.js 
+ 1728  git checkout -b production
+ 1729  git branch
+ 1730  git fetch origin
+ 1731  git branch
+ 1732  git pull origin main
+ 1733  git add .
+ 1734  git commit -m "faltaba pasarle id"
+ 1735  git push origin production 
+ 1736  git pull origin main
+ 1737  git pull --rebase
+ 1738  git commit -m "dkdkdk"
+ 1739  git add .
+ 1740  git commit -m "dkdkdk"
+ 1741  git add .
+ 1742  git commit -m "dkdkdk"
+ 1743  git rebase --continue
+ 1744  git push origin production 
+ 1745  git checkout origin/main 
+ 1746  git add .
+ 1747  git commit -m "ddkdkd"
+ 1748  cd ..
+ 1749  ls
+ 1750  git add .
+ 1751  git commit -m "server"
+ 1752  git pull origin main
+ 1753  git rebase --continue
+ 1754  git pull --rebase origin main
+ 1755  ls
+ 1756  git status
+ 1757  git rebase --continue
+ 1758  nano client/src/views/Albums.vue
+ 1759  git add client/src/views/Albums.vue
+ 1760  git rebase --continue
+ 1761  cd server/
+ 1762  ls
+ 1763  node index.js 
+ 1764  git branch
+ 1765  git pull origin main
+ 1766  git fetch origin main
+ 1767  git pull origin main
+ 1768  node index.js 
+ 1769  git branch
+ 1770  git checkout main
+ 1771  git pull
+ 1772  git ckeckout production
+ 1773  git checkout production 
+ 1774  git pull origin main
+ 1775  git branch
+ 1776  git pull main
+ 1777  git branch -vv
+ 1778  git checkout main
+ 1779  node index.js 
+ 1780  npm run dev
+ 1781  git checkout production 
+ 1782  node index.js 
+ 1783  git checkout main 
+ 1784  ls
+ 1785  nano .env
+ 1786  node index.js 
+ 1787  git checkout production 
+ 1788  node index.js 
+ 1789  git checkout prod
+ 1790  node index.js 
+ 1791  git checkout production 
+ 1792  git add .
+ 1793  git commit -m "cambios en el index"
+ 1794  git checkout production 
+ 1795  node index.js 
+ 1796  git branch
+ 1797  git checkout main 
+ 1798  git checkout -b prueba
+ 1799  ls
+ 1800  nano index.js 
+ 1801  rm index.js 
+ 1802  cd ..
+ 1803  cp index.js ./rgb_version_2/server/
+ 1804  cd rgb_version_2/server/
+ 1805  nano index.js 
+ 1806  node index.js 
+ 1807  git pull origin main
+ 1808  git fetch
+ 1809  git pull origin main
+ 1810  node index.js 
+ 1811  git branch -vv
+ 1812  cd ..
+ 1813  ls
+ 1814  git pull origin main
+ 1815  cd client/
+ 1816  git checkout prod
+ 1817  git add .
+ 1818  git commit "dkddkd"
+ 1819  git checkout prod
+ 1820  git commit -m "dkddkd"
+ 1821  git add .
+ 1822  cd ..
+ 1823  git add .
+ 1824  git commit " dkdkd"
+ 1825  git commit -m " dkdkd"
+ 1826  git checkout prod
+ 1827  cd client/
+ 1828  npm run build
+ 1829  cd ..
+ 1830  cd server/
+ 1831  node index.js 
+ 1832  git status
+ 1833  cd ..
+ 1834  git pull origin main
+ 1835  git status
+ 1836  git fetch
+ 1837  git pull origin main
+ 1838  git status
+ 1839  git rebase origin/main
+ 1840  git status
+ 1841  ls
+ 1842  cd server/
+ 1843  nano index.js 
+ 1844  nano routes/albumRouter.js 
+ 1845  cd ..
+ 1846  ls
+ 1847  cd client/
+ 1848  ls
+ 1849  npm run build
+ 1850  cd ..
+ 1851  cd server/
+ 1852  node index.js 
+ 1853  cd ..
+ 1854  git pull origin main
+ 1855  git rebase origin/main
+ 1856  cd client/
+ 1857  npm run build
+ 1858  cd ..
+ 1859  cd server/
+ 1860  node index.js 
+ 1861  nano index.js 
+ 1862  node index.js 
+ 1863  ls
+ 1864  sudo nano services/userService.js 
+ 1865  ls
+ 1866  sudo nano controllers/userController.js 
+ 1867  sudo nano services/userService.js 
+ 1868  node index.js 
+ 1869  sudo nano middlewares/isAdmin.js 
+ 1870  sudo nano .env
+ 1871  node index.js 
+ 1872  node app.js
+ 1873  git branch
+ 1874  git status
+ 1875  git fetch
+ 1876  git branch
+ 1877  git pull
+ 1878  node app.js
+ 1879  ls
+ 1880  cd database/
+ 1881  ls
+ 1882  git restore --source=HEAD~1 -- database/config/config.js
+ 1883  cd ../
+ 1884  git restore --source=HEAD~1 -- database/config/config.js
+ 1885  git restore --source=HEAD~1 --worktree --staged -- database/config/
+ 1886  git restore --source=HEAD~1 --worktree --staged -- /database/config/
+ 1887  git restore --source=HEAD~1 --worktree --staged -- database/config/
+ 1888  cd database/
+ 1889  ls
+ 1890  mkdir config
+ 1891  cd config/
+ 1892  ls
+ 1893  sudo nano config.js
+ 1894  cd ..
+ 1895  ls
+ 1896  cd config/
+ 1897  ls
+ 1898  cd ..
+ 1899  node app.js
+ 1900  cd database/config/
+ 1901  sudo nano config.js 
+ 1902  cd ..
+ 1903  node app.js
+ 1904  cd config
+ 1905  cd database/config/
+ 1906  sudo nano config.js 
+ 1907  cd .. ..
+ 1908  cd .. 
+ 1909  node app.js
+ 1910  cd ..
+ 1911  cd rgb_version_2/
+ 1912  ls
+ 1913  cd client/
+ 1914  ls
+ 1915  npm run dev -- --port 8443
+ 1916  nvm use 22
+ 1917  npm run dev -- --port 8443
+ 1918  cd ..
+ 1919  cd Proyecto-pagina-web/
+ 1920  ls
+ 1921  node app.js
+ 1922  cd ..
+ 1923  cd rgb_version_2/
+ 1924  ls
+ 1925  cd client/
+ 1926  npm run dev -- --port 8443
+ 1927  cd ..
+ 1928  cd Proyecto-pagina-web/
+ 1929  ls
+ 1930  node app.js
+ 1931  cd ..
+ 1932  cd rgb_version_2/
+ 1933  ls
+ 1934  cd client/
+ 1935  nvm use 22
+ 1936  npm install -g serve
+ 1937  serve -s dist -l 8443
+ 1938  cd ..
+ 1939  cd Proyecto-pagina-web/
+ 1940  ls
+ 1941  node app.js
+ 1942  cd ..
+ 1943  cd rgb_version_2/
+ 1944  cd client/
+ 1945  ls
+ 1946  serve -s dist -l 8443
+ 1947  sudo apt install xsel
+ 1948  serve -s dist -l 8443
+ 1949  ls
+ 1950  touch server.js
+ 1951  nano server.js 
+ 1952  nvm use 22
+ 1953  npm instal express path
+ 1954  npm install express path
+ 1955  node server.js 
+ 1956  nano index.html 
+ 1957  nano server.js 
+ 1958  node server.js 
+ 1959  nano server.js 
+ 1960  node server.js 
+ 1961  nano server.js 
+ 1962  node server.js 
+ 1963  nano server.js 
+ 1964  node server.js 
+ 1965  npm install
+ 1966  node server.js 
+ 1967  nano server.js 
+ 1968  node server.js 
+ 1969  npm i http-proxy-middleware compression helmet
+ 1970  node server.js 
+ 1971  nano server.js 
+ 1972  node server.js 
+ 1973  nano server.js 
+ 1974  node server.js 
+ 1975  nano server.js 
+ 1976  node server.js 
+ 1977  nano server.js 
+ 1978  node server.js 
+ 1979  cd ..
+ 1980  cd Proyecto-pagina-web/
+ 1981  ls
+ 1982  node app.js
+ 1983  cd ..
+ 1984  cd rgb_version_2/client/
+ 1985  ls
+ 1986  node server.js 
+ 1987  cd ..
+ 1988  ls
+ 1989  cd rgb_version_2/
+ 1990  cd server/
+ 1991  ls
+ 1992  node index.js 
+ 1993  ls
+ 1994  nano index.js 
+ 1995  node index.js 
+ 1996  cd ..
+ 1997  screen -ls
+ 1998  screen -r server 
+ 1999  ls
+ 2000  cd rgb_version_2/
+ 2001  ls
+ 2002  cd server/
+ 2003  ls
+ 2004  cd ..
+ 2005  ls
+ 2006  history
+ 2007  cd rgb_version_2/client/
+ 2008  ls
+ 2009  history > a.tx

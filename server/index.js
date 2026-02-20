@@ -26,7 +26,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'dev_secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: true } // en prod con HTTPS => true
+  cookie: { secure: false } // en prod con HTTPS => true
 }))
 
 await sequelize
