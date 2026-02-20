@@ -45,7 +45,11 @@ async function submit() {
     form.append('name', name.value);
     form.append('date', date.value);
     form.append('cover', coverFile.value);
-    link.value? form.append('cover', coverFile.value) : '';
+    if (link.value) {
+        //es video
+        form.append('link', link.value);
+        form.append('type', 1)
+    }
     if (files.value.length > 0) {
 
         files.value.forEach(f => form.append('images', f));
@@ -55,9 +59,7 @@ async function submit() {
     error.value = ''
     success.value = false
     loading.value = true
-    console.log('====================================');
-    console.log(form);
-    console.log('====================================');
+   
     try {
         const res = await fetch('/api/albums/create', {
             method: 'POST',
@@ -107,10 +109,11 @@ async function submit() {
 
                 <label>
                     <span>Imágenes </span>
-                    <input type="file" class="form-control" accept="image/*" :disabled="isVideo" multiple @change="onFilesChange" />
+                    <input type="file" class="form-control" accept="image/*" :disabled="isVideo" multiple
+                        @change="onFilesChange" />
                 </label>
 
-                 <label>
+                <label>
                     <span>Link de video</span>
                     <input v-model="link" class="form-control" :disabled="!isVideo"></input>
                 </label>
@@ -133,18 +136,49 @@ async function submit() {
     padding-top: 0.2rem;
     padding-bottom: 0.8rem;
 }
+
 /* Mobile-only: friendlier previews and spacing */
 @media (max-width: 576px) {
-  #form-album { padding: 1rem !important; }
-  #form-album img { width: 45% !important; height: 100px !important; margin-right: 8px; }
-  #form-album .grid { display: flex; flex-wrap: wrap; gap: 8px; }
-  #form-album button { width: 100%; }
+    #form-album {
+        padding: 1rem !important;
+    }
+
+    #form-album img {
+        width: 45% !important;
+        height: 100px !important;
+        margin-right: 8px;
+    }
+
+    #form-album .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    #form-album button {
+        width: 100%;
+    }
 }
+
 /* Phablets/tablets chicas */
 @media (max-width: 768px) {
-  #form-album { padding: 1.25rem !important; }
-  #form-album img { width: 30% !important; height: 110px !important; }
-  #form-album .grid { display: flex; flex-wrap: wrap; gap: 10px; }
-  #form-album button { width: 100%; }
+    #form-album {
+        padding: 1.25rem !important;
+    }
+
+    #form-album img {
+        width: 30% !important;
+        height: 110px !important;
+    }
+
+    #form-album .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #form-album button {
+        width: 100%;
+    }
 }
 </style>
