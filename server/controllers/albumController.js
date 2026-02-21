@@ -29,7 +29,7 @@ export async function listAlbums(req, res, next) {
 export async function listAlbumDetail(req, res, next) {
   try {
     const album = await albumService.findById(req.params.id);
-    
+
     res.json(album);
   } catch (err) {
     next(err);
@@ -65,11 +65,11 @@ export async function createAlbum(req, res, next) {
       const result = await Promise.all(
         images.map((img) => {
           const a = photoService.create(img, album.album_id);
-        })
+        }),
       );
     }
 
-    res.status(200).json(album);
+    return res.status(201).json({ album });
   } catch (err) {
     next(err);
   }
@@ -87,7 +87,7 @@ export async function updateAlbum(req, res, next) {
     }
     await album.update(patch);
 
-    res.status(200).json({ album });
+    return res.status(200).json({ album });
   } catch (err) {
     next(err);
   }
@@ -96,10 +96,9 @@ export async function updateAlbum(req, res, next) {
 export async function deleteAlbum(req, res, next) {
   try {
     const deleted = await albumService.remove(req.params.id);
-    if (!deleted){
+    if (!deleted) {
       return res.status(404).json({ error: "No existe" });
-    }
-    else{
+    } else {
       res.status(200).json("borrado");
     }
   } catch (err) {
