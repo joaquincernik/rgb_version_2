@@ -21,10 +21,7 @@ async function submit() {
         if (!res.ok) throw new Error(data?.error || 'Error de login')
 
         success.value = true
-        console.log('====================================');
-        console.log(data);
-        console.log('====================================');
-        //window.location.href = '/'
+        window.location.href = '/'
     } catch (e) {
         error.value = e.message
     } finally {
