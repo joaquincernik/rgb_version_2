@@ -24,7 +24,7 @@ async function submit() {
         console.log('====================================');
         console.log(data);
         console.log('====================================');
-        //window.location.href = '/'
+        window.location.href = '/'
     } catch (e) {
         error.value = e.message
     } finally {
