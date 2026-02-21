@@ -3,16 +3,17 @@ import cors from "cors";
 import sequelize from "./database.js";
 import "./models/index.js"; // importa y registra asociaciones
 import session from "express-session";
-import userRouter from "./routes/userRouter.js"
-import albumRouter from "./routes/albumRouter.js"
-import photoRouter from "./routes/photoRouter.js"
+import userRouter from "./routes/userRouter.js";
+import albumRouter from "./routes/albumRouter.js";
+import photoRouter from "./routes/photoRouter.js";
 import multer from "multer";
 import fetch from "node-fetch";
 import path from "path";
-import { fileURLToPath } from 'url';
- 
+import { fileURLToPath } from "url";
+
 const app = express();
-const PORT = 8443;
+//const PORT = 8443;
+const PORT = process.env.PORT ?? 3000;
 // __dirname no existe en ESM → lo definimos manualmente
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,13 +22,15 @@ app.use(cors());
 app.use(express.json());
 
 // Servir estáticos (para poder ver/consumir las imágenes subidas)
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'dev_secret',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false } // en prod con HTTPS => true
-}))
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "dev_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }, // en prod con HTTPS => true
+  }),
+);
 
 await sequelize
   .authenticate()
@@ -36,11 +39,11 @@ await sequelize
 
 await sequelize.sync({ alter: false }); // o { force: false } en prod
 
-app.use("/api/users", userRouter)
-app.use("/api/albums", albumRouter)
-app.use("/api/photos", photoRouter)
+app.use("/api/users", userRouter);
+app.use("/api/albums", albumRouter);
+app.use("/api/photos", photoRouter);
 
-app.use(express.static(path.join(__dirname, "..", "client", "dist"))); // ← CORREGIDO (sin espacio)
+//app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
 // Manejo de errores de multer (mensajes claros)
 app.use((err, req, res, next) => {
@@ -84,14 +87,13 @@ app.get("/api/youtube/latest", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Error consultando YouTube" });
   }
-})
+});
 
-// fallback para SPA (todas las rutas del front apuntan a index.html)
+/* fallback para SPA (todas las rutas del front apuntan a index.html)
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname,"..","client", "dist", "index.html"));
 });
-
+*/
 app.listen(PORT, () => {
   console.log(`API escuchando en http://localhost:${PORT}`);
 });
-
